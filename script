@@ -1,0 +1,23 @@
+// ==UserScript==
+// @name         Fix Dark Formatting
+// @namespace    http://tampermonkey.net/
+// @version      2024-08-25
+// @description  Removes Lightmode Background leftover from copy & pasting when on Darkmode
+// @author       gaylie
+// @match        https://xcreativeclashx.net/forums/*
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=xcreativeclashx.net
+// @grant        none
+// @run-at       document-idle
+// @license      GNU AGPLv3
+// @require      https://code.jquery.com/jquery-3.6.0.min.js
+// ==/UserScript==
+ 
+setTimeout(() => {
+    var lightHex = "#c6dfe1";
+    var lightRGB = "rgb(198,223,225)";
+    var mode = $("li.ipsJS_show[data-focus-toggle-theme] > a").attr('title') == "Light Mode"; // true for light mode, false for dark mode
+ 
+    if (mode)
+        $('[style*="background-color:' + lightHex + '"], [style*="background-color:' + lightRGB + '"]').css('background-color','');
+}, 500);
+
