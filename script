@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Fix Dark Formatting
+// @name         Fix Light/Dark Mode Formatting
 // @namespace    http://tampermonkey.net/
 // @version      2024-08-25
-// @description  Removes Lightmode Background leftover from copy & pasting when on Darkmode
+// @description  Removes Lightmode/Darkmode Background leftover from copy & pasting when on the other Mode
 // @author       gaylie
 // @match        https://xcreativeclashx.net/forums/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=xcreativeclashx.net
@@ -11,13 +11,14 @@
 // @license      GNU AGPLv3
 // @require      https://code.jquery.com/jquery-3.6.0.min.js
 // ==/UserScript==
- 
+
 setTimeout(() => {
     var lightHex = "#c6dfe1";
     var lightRGB = "rgb(198,223,225)";
+    var darkHex = "#2d3037";
+    var darkRGB = "rgb(45,48,55)";
     var mode = $("li.ipsJS_show[data-focus-toggle-theme] > a").attr('title') == "Light Mode"; // true for light mode, false for dark mode
- 
-    if (mode)
-        $('[style*="background-color:' + lightHex + '"], [style*="background-color:' + lightRGB + '"]').css('background-color','');
-}, 500);
+    console.log('[style*="background-color:' + (mode ? lightHex : darkHex) + '"], [style*="background-color:' + (mode ? lightRGB : darkRGB) + '"]');
 
+    $('[style*="background-color:' + (mode ? lightHex : darkHex) + '"], [style*="background-color:' + (mode ? lightRGB : darkRGB) + '"]').css({"background-color": "", "color": ""});
+}, 500);
