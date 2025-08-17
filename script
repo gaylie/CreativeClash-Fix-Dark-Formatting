@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Fix Light/Dark Mode Formatting
 // @namespace    http://tampermonkey.net/
-// @version      2025-0208-17-0
+// @version      2025-08-17-0
 // @description  Removes Lightmode/Darkmode Background leftover from copy & pasting when on the other Mode
 // @author       gaylie
 // @updateURL    https://github.com/gaylie/CreativeClash-Fix-Dark-Formatting/raw/refs/heads/main/script
