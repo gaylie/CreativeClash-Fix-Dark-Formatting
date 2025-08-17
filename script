@@ -1,9 +1,11 @@
 // ==UserScript==
 // @name         Fix Light/Dark Mode Formatting
 // @namespace    http://tampermonkey.net/
-// @version      2025-02-28-0
+// @version      2025-0208-17-0
 // @description  Removes Lightmode/Darkmode Background leftover from copy & pasting when on the other Mode
 // @author       gaylie
+// @updateURL    https://github.com/gaylie/CreativeClash-Fix-Dark-Formatting/raw/refs/heads/main/script
+// @downloadURL  https://github.com/gaylie/CreativeClash-Fix-Dark-Formatting/raw/refs/heads/main/script
 // @match        https://xcreativeclashx.net/*
 // @exclude      https://xcreativeclashx.net/forums/topic/*/?do=edit*
 // @exclude      https://xcreativeclashx.net/submissions/*/*/?do=form*
@@ -26,6 +28,6 @@ $(document).ready(function() {
 
     for (let key in colorcodes) {
         var style = '[style*="background-color:' + colorcodes[key] + '"]';
-        $('p'+style+', span'+style+', ul'+style+', ol'+style).css({"background-color": "", "color": ""});
+        $('.cPost_contentWrap '+style).css({"background-color": "", "color": ""});
     }
 });
